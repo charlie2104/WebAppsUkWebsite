@@ -46,3 +46,12 @@ body{
 #navlinks ul li{
     display: inline;
 }
+#logo a{
+	text-decoration: none;
+	color: #fff;
+}
+.main{
+	margin: 0 auto;
+	width: 90%;
+	background-color: #fff;
+}
