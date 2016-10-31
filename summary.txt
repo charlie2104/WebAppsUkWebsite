@@ -1,0 +1,3 @@
+today i have learnt about how tihngs work at web applications uk. From How the client gets in touch with them through to the testing of the 
+product and the case beign closed. I have also learnt about traveller and started to learn some mre about javascript. Tommorow i hope to learn
+much mre about mysql and php.
