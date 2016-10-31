@@ -2,12 +2,10 @@
 	margin: 0;
 	padding: 0;
 }
-
 body{
 	background-color: #f0f0f0;
 	font-family: sans-serif, serif;
 }
-
 .navbar{
 	margin: 0;
 	width: 100%;
@@ -34,18 +32,17 @@ body{
     padding: 0;
     overflow: hidden;
 }
-#navlinks ul li a{
-    color: #fff;
+#navlinks ul li button{
+    background-color: #6699ff;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 2px solid white;
+    color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
 }
 #navlinks ul li{
     display: inline;
-}
-.main{
-	margin: 0 auto;
-	height: 90px;
-	width: 90%;
-	background-color: #000;
 }
