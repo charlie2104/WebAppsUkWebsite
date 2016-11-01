@@ -23,8 +23,20 @@
 				<input type="text" name="username" id="username">
 				<label>password: </label>
 				<input type="password" name="password" id="password">
-				<button type = "submit" id = "logInButton">log in!</button>
+				<button type = "submit" name = "logInButton" id = "logInButton">log in!</button>
 			</form>
+
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					if (isset($_POST['logInButton'])) {
+				        $inputUserName = $_POST['username'];
+				        $inputUserPassword =  $_POST['password'];
+				    } else {
+				        echo "failed";
+				    }
+
+				}
+			?>
 		</div>
 		<script type="text/javascript" src = "../JavaScript/script.js"></script>
 		<script type="text/javascript" src = "../JavaScript/logInValidation.js"></script>
