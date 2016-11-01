@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class = 'navbar'>
-			<p id = 'logo'><a href="index.html">myNotes</a></p>
+			<p id = 'logo'><a href="index.php">myNotes</a></p>
 		</div>
 		<div class= 'main'>
 
