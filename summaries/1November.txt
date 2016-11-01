@@ -1,4 +1,4 @@
-today i havwe learnt lots of things about databases, PHP, javascript, servers and testing.
+today i have learnt lots of things about databases, PHP, javascript, servers and testing.
 
 ----Databases----
 i learnt alot about how to use a database. I learnt how to set up xampp and use the local host to access the database through phpMyAdmin. After that
