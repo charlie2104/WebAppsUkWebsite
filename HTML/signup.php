@@ -9,7 +9,7 @@
 			<p id = 'logo'><a href="index.html">myNotes</a></p>
 		</div>
 		<div class= 'main'>
-				<?php echo "Hello" ?>
+
 			<h2>make an acount</h2>
 			<hr />
 			<form class = 'signup' method="post" accept="\">
@@ -25,6 +25,5 @@
 			</form>
 		</div>
 		<script type="text/javascript" src = "../JavaScript/script.js"></script>
-
 	</body>
 </html>
