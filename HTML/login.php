@@ -8,7 +8,8 @@
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
-			$conn = new mysqli($servername, $username, $password);
+			$con = new mysqli($servername, $username, $password);
+			//$db = mysqli_select_db($con,"mynotes");
 		?>
 	</head>
 	<body>
@@ -35,6 +36,8 @@
 				        echo "failed";
 				    }
 				}
+				//$query = mysql_query("SELECT * FROM users WHERE userName = 'charlie2104' ")or die(mysql_error());
+				//echo $query;
 			?>
 		</div>
 		<script type="text/javascript" src = "../JavaScript/script.js"></script>
