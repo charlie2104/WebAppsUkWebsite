@@ -3,6 +3,13 @@
 	<head>
 		<title>myNotes</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/styling.css">
+		<?php
+		// Create connection
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$conn = new mysqli($servername, $username, $password);
+		?>
 	</head>
 	<body>
 		<div class = 'navbar'>
@@ -24,6 +31,5 @@
 				<button type = "submit">sign up!</button>
 			</form>
 		</div>
-		<script type="text/javascript" src = "../JavaScript/script.js"></script>
 	</body>
 </html>

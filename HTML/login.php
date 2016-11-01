@@ -3,6 +3,13 @@
 	<head>
 		<title>myNotes</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/styling.css">
+		<?php
+		// Create connection
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$conn = new mysqli($servername, $username, $password);
+		?>
 	</head>
 	<body>
 		<div class = 'navbar'>
