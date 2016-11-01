@@ -1,0 +1,23 @@
+today i havwe learnt lots of things about databases, PHP, javascript, servers and testing.
+
+----Databases----
+i learnt alot about how to use a database. I learnt how to set up xampp and use the local host to access the database through phpMyAdmin. After that
+i started to use MYSQL to do things such as create a table then procced to insert data into that table and read the data. I also learnt how to drop
+tables and about different data types such as varhcar and integers. Finally i learnt about primary keys and how to auto increment the primary key each
+time a new user is added to the database.
+
+----PHP----
+i have been using PHP to talk directly to my database through the website itself. I also used PHP to get values from a form and store them as variables.
+I have found learning PHP the most challenging part of the day as its syntax is very different to any other language i have worked with. Also i didnt
+manage to get it working for a while due to it not being run on a web server.
+
+----JavaScript----
+A lot of the javascrip i used today was very similar to things i already new. However i learnt about why to keep it at the bottom of the file and i also
+started to do some basic form validation with it
+
+----Testing----
+today i learnt alot more about the testing proccess and how to test a program properly. I learnt about testing extreme values and searching through
+code to see if it meets coding standards.
+
+----servers----
+i learnt how to run a website off of a local host so i can use PHP.
