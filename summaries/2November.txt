@@ -1,0 +1,22 @@
+Today i have learnt and used lots of new things. Mainly using PHP and MySQL.
+
+----PHP----
+Today i set up the main parts of my login system using PHP. I first learnt how to use MySQLi to select data using queries. I then learnt how to loop
+through the results of the queery and store data that i needed in variables. I could then compare the 2 sets of usernames and if they matched compare
+the 2 sets of passwords. I ran into problems with this when trying to select things from the database but i fixed it relatively quickly wiht some help.
+When the user logs in i set 2 session variables equal to the username and a loggedIn variable to tru. I learnt that these session variables are extemely 
+usefull as they allow you to keep track of variables across different pages such as seeing if the user is logged in or not. I also learnt about PHP 
+functions and how to create/use them when i created a function that alerts the user of something. The final ting i learnt about when making the login
+page was the header command which leads you change page.When creating the sign up age i learnt alot about how to enter data into a table using PHP.
+And about verifying a form using FILTER_VALIDATE_EMAIL and FILTER_SANITIZE_EMAIL. Once all the verificaton was run i added the details to the database.
+
+----MySQL----
+Today i used mySQL to start creating a relational database i learnt how to define a foreign key and also learnt how to edit the title of columns in
+a table. I also learnt about using more queries such as lookign for things using operators eg > or < . I learnt about a few new data types such as
+DATE and DATETIME. And i also learnt how the two tables are linked.
+
+----HTML----
+I learnt how to make a datepicker and a textfield for adding data into the database.
+
+----tommorow----
+Tommorow i will start to look at how to populate a table using PHP and hoefully add functionality to add and remove new events.
