@@ -58,6 +58,7 @@
 						        	if ($dbPassword == $inputUserPassword){
 						        		$count += 1;
 						        		alertUser("logged in");
+						        		header('Location: diary.php');
 						        	}
 						    	}	
 							}
