@@ -13,6 +13,18 @@
 			function alertUser($message){
 				echo '<script language="javascript">alert("' . $message . '")</script>';
 			}
+
+			function validateEmail($email){
+				// Remove all illegal characters from email
+				$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+				// Validate e-mail
+				if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+				    return true;
+				} else {
+				    return false;
+				}
+			}
 		?>
 	</head>
 	<body>
@@ -46,27 +58,27 @@
 							alertUser("all fields must be filled in");
 						} else{
 							if ($chosenPassword == $confirmPassword){
-								
-								$getValues = "SELECT usersId, userName, password FROM users";
-								$result = mysqli_query($conn, $getValues);
-
-								if (mysqli_num_rows($result) > 0) {
-								    while($row = mysqli_fetch_assoc($result)) {
-								    	$dbUserName = $row["userName"];
-								    	if ($dbUserName == $chosenUserName){
-								    		$userNameCount += 1;
-								    	}
-								    }
-								    if ($userNameCount == 0){
-									    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')";
-										if (mysqli_query($conn, $addUser)) {
-											alertUser("New record created successfully");
-										} else {
-											echo "Error: " . $addUser . "<br>" . mysqli_error($conn);
+								if (validateEmail($chosenEmail)) {
+									$getValues = "SELECT usersId, userName, password FROM users";
+									$result = mysqli_query($conn, $getValues);
+									if (mysqli_num_rows($result) > 0) {
+									    while($row = mysqli_fetch_assoc($result)) {
+									    	$dbUserName = $row["userName"];
+									    	if ($dbUserName == $chosenUserName){
+									    		$userNameCount += 1;
+									    	}
+									    }
+									    if ($userNameCount == 0){
+										    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')";
+											if (mysqli_query($conn, $addUser)) {
+												alertUser("New record created successfully");
+											} 
+										} else{
+											alertUser("that username has been taken");
 										}
-									} else{
-										alertUser("that username has been taken");
 									}
+								} else{
+									alertUser("that email adress is not valid");
 								}
 							} else{
 								alertUser("the passwords do not match");
