@@ -4,7 +4,8 @@
 		<title>myNotes</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/styling.css">
 		<?php
-		// Create connection
+			session_start();
+			// Create connection
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
