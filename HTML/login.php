@@ -30,6 +30,8 @@
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					if (isset($_POST['logInButton'])) {
+						//initialising a count variable
+						$count = 0;
 						//getting the values from the text boxes
 				        $inputUserName = $_POST['username'];
 				        $inputUserPassword =  $_POST['password'];
@@ -45,28 +47,32 @@
 						        $dbUserName = $row["userName"];
 						        //if the inputted username is the same as the username in the curent row
 						        if ($dbUserName == $inputUserName) {
-						        	echo $inputUserName;
+						        	$count += 1;
 						        	//sets the password from the row to a variable
 						        	$dbPassword = $row["password"];
 						        	//if the inputted password is the same as the pasword in the curent row log them in
 						        	if ($dbPassword == $inputUserPassword){
-						        		echo $inputUserPassword;
+						        		$count += 1;
+						        		echo "logged in";
 						        	}
-						        	else{
-						        		echo "incorrect password";
-						        	}
-						        }else{
-						        	echo "incorrect username";
-						        }
-						    }
+						    	}	
+							}
 						} else {
 						    echo "0 results";
+						}
+						if ($count == 1){
+							echo "incorrect password";
+							$count = 0;
+						} elseif ($count == 0) {
+							echo "incorrect user name";
+							$count = 0;
 						}
 				    } else {
 				        echo "failed";
 				    }
 				}
 			?>
+
 		</div>
 		<script type="text/javascript" src = "../JavaScript/script.js"></script>
 		<script type="text/javascript" src = "../JavaScript/logInValidation.js"></script>
