@@ -59,7 +59,10 @@
 						        	if ($dbPassword == $inputUserPassword){
 						        		$count += 1;
 						        		alertUser("logged in");
+						        		$_SESSION['loggedin'] = true;
+    									$_SESSION['username'] = $inputUserName;
 						        		header('Location: diary.php');
+						        		 
 						        	}
 						    	}	
 							}

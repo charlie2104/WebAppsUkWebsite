@@ -3,6 +3,10 @@
 	<head>
 		<title>myNotes</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/styling.css">
+		<?php 
+			session_start();
+
+		?>
 	</head>
 	<body>
 		<div class = 'navbar'>

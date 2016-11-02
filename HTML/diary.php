@@ -4,7 +4,8 @@
 		<title>myNotes</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/styling.css">
 		<?php
-		// Create connection
+			session_start();
+			// Create connection
 			$servername = "localhost";
 			$username = "root";
 			$password = "";
@@ -19,6 +20,11 @@
 	<body>
 		<div class = 'navbar'>
 			<p id = 'logo'><a href="index.php">myNotes</a></p>
+			
+			<?php 
+				echo '<p> ' . $_SESSION['username'] . ' </p>';
+			?>
+
 		</div>
 		<div class = "main">
 			<table id = "diary">
