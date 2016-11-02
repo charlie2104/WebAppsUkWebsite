@@ -10,6 +10,12 @@
 			$password = "";
 			$conn = new mysqli($servername, $username, $password);
 			$db = mysqli_select_db($conn,"mynotes");
+
+			function alertUser($message){
+				echo '<script language="javascript">';
+				echo 'alert("' . $message . '")';
+				echo '</script>';
+			}
 		?>
 	</head>
 	<body>
@@ -53,22 +59,22 @@
 						        	//if the inputted password is the same as the pasword in the curent row log them in
 						        	if ($dbPassword == $inputUserPassword){
 						        		$count += 1;
-						        		echo "logged in";
+						        		alertUser("logged in");
 						        	}
 						    	}	
 							}
 						} else {
-						    echo "0 results";
+						    alertUser("0 results");
 						}
 						if ($count == 1){ 
-							echo "incorrect password";
+							alertUser("incorrect password");
 							$count = 0;
 						} elseif ($count == 0) {
-							echo "incorrect user name";
+							alertUser("incorrect user name");
 							$count = 0;
 						}
 				    } else {
-				        echo "failed";
+				        alertUser("failed");
 				    }
 				}
 			?>

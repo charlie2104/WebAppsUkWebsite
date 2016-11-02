@@ -9,6 +9,12 @@
 			$username = "root";
 			$password = "";
 			$conn = new mysqli($servername, $username, $password);
+			$db = mysqli_select_db($conn,"mynotes");
+			function alertUser($message){
+				echo '<script language="javascript">';
+				echo 'alert("' . $message . '")';
+				echo '</script>';
+			}
 		?>
 	</head>
 	<body>
@@ -37,10 +43,27 @@
 						$chosenEmail = $_POST['email'];
 						$chosenPassword = $_POST['password'];
 						$confirmPassword = $_POST['cpassword'];
-						if ($chosenPassword == $confirmPassword){
-
+						if ($chosenUserName == "" or $chosenEmail == "" or $chosenPassword == "" or $confirmPassword == ""){
+							alertUser("all fields must be filled in");
 						} else{
-							echo "the passwords do not match";
+							if ($chosenPassword == $confirmPassword){
+								
+								$sql = "SELECT usersId, userName, password FROM users";
+								$result = mysqli_query($conn, $sql);
+
+								if (mysqli_num_rows($result) > 0) {
+								    while($row = mysqli_fetch_assoc($result)) {
+								    	$dbUserName = $row["userName"];
+								    	if ($dbUserName == $chosenUserName){
+								    		alertUser("that username has been taken");
+								    	} else{
+								    		
+								    	}
+								    }
+								}
+							} else{
+								alertUser("the passwords do not match");
+							}
 						}
 					}
 				}
