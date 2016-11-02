@@ -60,7 +60,7 @@
 						} else {
 						    echo "0 results";
 						}
-						if ($count == 1){
+						if ($count == 1){ 
 							echo "incorrect password";
 							$count = 0;
 						} elseif ($count == 0) {

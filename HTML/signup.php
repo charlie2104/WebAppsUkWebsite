@@ -28,8 +28,24 @@
 				<input type="password" name="password" id="password">
 				<label>confirm password: </label>
 				<input type="password" name="cpassword" id="cpassword">
-				<button type = "submit">sign up!</button>
+				<button type = "submit" id = "signUpButton" name = "signUpButton">sign up!</button>
 			</form>
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					if (isset($_POST['signUpButton'])) {
+						$chosenUserName = $_POST['username'];
+						$chosenEmail = $_POST['email'];
+						$chosenPassword = $_POST['password'];
+						$confirmPassword = $_POST['cpassword'];
+						if ($chosenPassword == $confirmPassword){
+
+						} else{
+							echo "the passwords do not match";
+						}
+					}
+				}
+
+			?>
 		</div>
 	</body>
 </html>
