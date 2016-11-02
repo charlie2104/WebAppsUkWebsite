@@ -24,11 +24,22 @@
 			<table id = "diary">
 				<tr>
 					<th>event</th>
+					<th>description</th>
 					<th>date</th>
-					<th>time</th>
-					<th>days untill</th>
-				</tr>
+					<th>days until</th>
+				</tr> 
 			</table>
+			<form method="post" class = "addEvent">
+				<label>event: </label>
+				<input type="text" name="eventTitle" id = "eventTitle">
+				<label>details about the event (maximum 140 characters): </label>
+				<textarea id = "eventDetails"></textarea>
+				<label>event location: </label>
+				<input type="text" name="eventLocation" id = "eventLocation">
+				<label>date: </label>
+				<input type="date" name="eventDate" id = "eventDate">
+				<button type = "submit" id = "eventSubmit">add</button>
+			</form>
 		</div>
 	</body>
 </html>
