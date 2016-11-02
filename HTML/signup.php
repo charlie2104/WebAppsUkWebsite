@@ -33,17 +33,17 @@
 		</div>
 		<div class= 'main'>
 
-			<h2>make an acount</h2>
+			<h2 class = "signUp_heading">make an account</h2>
 			<hr />
 			<form class = 'signup' method="post" accept="\">
 				<label>user name: </label>
-				<input type="text" name="username" id="username">
+				<input type="text" name="username" id="username" class = "textBar">
 				<label>email: </label>
-				<input type="text" name="email" id="email">
+				<input type="text" name="email" id="email" class = "textBar">
 				<label>password: </label>
-				<input type="password" name="password" id="password">
+				<input type="password" name="password" id="password" class = "textBar">
 				<label>confirm password: </label>
-				<input type="password" name="cpassword" id="cpassword">
+				<input type="password" name="cpassword" id="cpassword" class = "textBar">
 				<button type = "submit" id = "signUpButton" name = "signUpButton">sign up!</button>
 			</form>
 			<?php

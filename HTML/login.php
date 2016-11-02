@@ -21,13 +21,13 @@
 			<p id = 'logo'><a href="index.php">myNotes</a></p>
 		</div>
 		<div class= 'main'>
-			<h2>Log in!</h2>
+			<h2 class = "signUp_heading">Log in!</h2>
 			<hr />
 			<form class = 'login' method="post" accept="\">
 				<label>user name: </label>
-				<input type="text" name="username" id="username">
+				<input type="text" name="username" id="username" class = "textBar">
 				<label>password: </label>
-				<input type="password" name="password" id="password">
+				<input type="password" name="password" id="password" class = "textBar">
 				<button type = "submit" name = "logInButton" id = "logInButton">log in!</button>
 			</form>
 
