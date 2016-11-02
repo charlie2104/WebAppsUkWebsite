@@ -11,9 +11,7 @@
 			$conn = new mysqli($servername, $username, $password);
 			$db = mysqli_select_db($conn,"mynotes");
 			function alertUser($message){
-				echo '<script language="javascript">';
-				echo 'alert("' . $message . '")';
-				echo '</script>';
+				echo '<script language="javascript">alert("' . $message . '")</script>';
 			}
 		?>
 	</head>
@@ -39,6 +37,7 @@
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					if (isset($_POST['signUpButton'])) {
+						$userNameCount = 0;
 						$chosenUserName = $_POST['username'];
 						$chosenEmail = $_POST['email'];
 						$chosenPassword = $_POST['password'];
@@ -48,18 +47,26 @@
 						} else{
 							if ($chosenPassword == $confirmPassword){
 								
-								$sql = "SELECT usersId, userName, password FROM users";
-								$result = mysqli_query($conn, $sql);
+								$getValues = "SELECT usersId, userName, password FROM users";
+								$result = mysqli_query($conn, $getValues);
 
 								if (mysqli_num_rows($result) > 0) {
 								    while($row = mysqli_fetch_assoc($result)) {
 								    	$dbUserName = $row["userName"];
 								    	if ($dbUserName == $chosenUserName){
-								    		alertUser("that username has been taken");
-								    	} else{
-								    		
+								    		$userNameCount += 1;
 								    	}
 								    }
+								    if ($userNameCount == 0){
+									    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')";
+										if (mysqli_query($conn, $addUser)) {
+											alertUser("New record created successfully");
+										} else {
+											echo "Error: " . $addUser . "<br>" . mysqli_error($conn);
+										}
+									} else{
+										alertUser("that username has been taken");
+									}
 								}
 							} else{
 								alertUser("the passwords do not match");

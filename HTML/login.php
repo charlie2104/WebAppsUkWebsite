@@ -12,9 +12,7 @@
 			$db = mysqli_select_db($conn,"mynotes");
 
 			function alertUser($message){
-				echo '<script language="javascript">';
-				echo 'alert("' . $message . '")';
-				echo '</script>';
+				echo '<script language="javascript">alert("' . $message . '")</script>';
 			}
 		?>
 	</head>
@@ -43,8 +41,8 @@
 				        $inputUserPassword =  $_POST['password'];
 						
 						//selecting all of the data from the table
-						$sql = "SELECT usersId, userName, password FROM users";
-						$result = mysqli_query($conn, $sql);
+						$getValues = "SELECT usersId, userName, password FROM users";
+						$result = mysqli_query($conn, $getValues);
 
    						//checking to see if there are rows in the databse
 						if (mysqli_num_rows($result) > 0) {
