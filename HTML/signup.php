@@ -10,6 +10,7 @@
 			$password = "";
 			$conn = new mysqli($servername, $username, $password);
 			$db = mysqli_select_db($conn,"mynotes");
+			
 			function alertUser($message){
 				echo '<script language="javascript">alert("' . $message . '")</script>';
 			}
@@ -47,31 +48,34 @@
 				<button type = "submit" id = "signUpButton" name = "signUpButton">sign up!</button>
 			</form>
 			<?php
-				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-					if (isset($_POST['signUpButton'])) {
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
+					if (isset($_POST['signUpButton'])) {  //starts if the signup button is pressed
+						//initialising variables
 						$userNameCount = 0;
 						$chosenUserName = $_POST['username'];
 						$chosenEmail = $_POST['email'];
 						$chosenPassword = $_POST['password'];
 						$confirmPassword = $_POST['cpassword'];
+						//checks to see if the fields have data in them
 						if ($chosenUserName == "" or $chosenEmail == "" or $chosenPassword == "" or $confirmPassword == ""){
 							alertUser("all fields must be filled in");
 						} else{
-							if ($chosenPassword == $confirmPassword){
-								if (validateEmail($chosenEmail)) {
+							if ($chosenPassword == $confirmPassword){  //checks to see password is the same as the confirm password
+								if (validateEmail($chosenEmail)) {  //checks to see if the email is valid
 									$getValues = "SELECT usersId, userName, password FROM users";
 									$result = mysqli_query($conn, $getValues);
-									if (mysqli_num_rows($result) > 0) {
+									if (mysqli_num_rows($result) > 0) {   //checks that the table is populated
 									    while($row = mysqli_fetch_assoc($result)) {
 									    	$dbUserName = $row["userName"];
-									    	if ($dbUserName == $chosenUserName){
-									    		$userNameCount += 1;
+									    	if ($dbUserName == $chosenUserName){   //final check to see if username is allready taken
+									    		$userNameCount += 1;   //if username taken then userNameCount will not be zero
 									    	}
 									    }
-									    if ($userNameCount == 0){
-										    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')";
-											if (mysqli_query($conn, $addUser)) {
-												alertUser("New record created successfully");
+									    //this is outside the while loop to stope it creating multile data entries
+									    if ($userNameCount == 0){   //if userNameCount is 0 the username was not taken
+										    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')"; //MySQL code for inserting the values
+											if (mysqli_query($conn, $addUser)) { //if data is successfully added
+												alertUser("signed up!");
 											} 
 										} else{
 											alertUser("that username has been taken");
