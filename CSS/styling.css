@@ -20,7 +20,6 @@ body{
 	height: 60px;
 	background-color: #6699ff; 
 }
-
 #logo{
 	width:200px;
 	padding-top: 9px;
@@ -28,7 +27,6 @@ body{
 	color: #fff;
 	font-size: 2em;
 }
-
 #logo a{
     width: 200px;
 }
@@ -143,4 +141,27 @@ hr{
     text-align: center;
     font-size: 3em;
     padding:30px;
+}
+.addEvent{
+    margin: 0 auto;
+    width: 80%;
+}
+.addEvent textarea{
+    resize: none;
+    display: block;
+    font-size:1em;
+    padding:4px 2px;
+    margin:2px 0 20px 10px;
+}
+.addEvent input{
+    display: block;
+    font-size:1em;
+    padding:4px 2px;
+    margin:2px 0 20px 10px;
+}
+.addEvent button{
+    display: block;
+    font-size:1em;
+    padding:4px 2px;
+    margin:2px 0 20px 10px;
 }

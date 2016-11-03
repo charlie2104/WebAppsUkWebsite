@@ -8,7 +8,7 @@
 		?>
 	</head>
 	<body>
-		<div class = 'navbar'>
+		<div class = "navbar">
 			<?php
 				echo $_SESSION['loggedin'];
 				if ($_SESSION['loggedin'] == true) {
@@ -26,12 +26,10 @@
 		</div>
 		<div class= 'main'>
 		</div>
-		<?php
-			if ($_SESSION['loggedin'] == true) {
-				echo '<script type="text/javascript" src = "../JavaScript/logOut.js"></script>';
-			} else {
-				echo '<script type="text/javascript" src = "../JavaScript/script.js"></script>';
-			}
-		?>
+		<?php if ($_SESSION['loggedin'] == true): ?>
+				<script type="text/javascript" src = "../JavaScript/logOut.js"></script>
+		<?php else: ?>
+				<script type="text/javascript" src = "../JavaScript/script.js"></script>
+		<?php endif; ?>	
 	</body>
 </html>

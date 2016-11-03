@@ -27,7 +27,6 @@
 					?>
 				</p>
 			</span>
-
 			<p id = 'logo'><a href="index.php">myNotes</a></p>	
 		</div>
 		<div class = "main">
@@ -43,7 +42,7 @@
 						<th>days until</th>
 					</tr>
 					<?php
-						$selectEventsQuery = "SELECT * FROM diary";
+						$selectEventsQuery = "SELECT * FROM diary ORDER BY eventDate";
 					    $selectionResult = mysqli_query($conn, $selectEventsQuery);
 					    if (mysqli_num_rows($selectionResult) > 0) {
 							    while($row = mysqli_fetch_assoc($selectionResult)) {
@@ -53,12 +52,13 @@
 							   			$secondsLeft = (strtotime($row["eventDate"]) - strtotime(date("Y-m-d")));
 							   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
 							   			$daysLeft = floor($secondsLeft/86400);
+							   			$shownDate = date("d-m-Y", strtotime($row["eventDate"]));
 							   			//populates the table
 							   			echo "<tr>";
 							            echo 	'<td>'.$row["eventTitle"].'</td>';
 							            echo 	'<td>'.$row["notes"].'</td>';
 							            echo 	'<td>'.$row["eventLocation"].'</td>';
-							            echo 	'<td>'.$row["eventDate"].'</td>';
+							            echo 	'<td>'.$shownDate.'</td>';
 							            echo 	'<td>'.$daysLeft.'</td>';
 							        	echo '</tr>';
 							   		}
