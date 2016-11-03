@@ -19,14 +19,24 @@
 	</head>
 	<body>
 		<div class = 'navbar'>
-			<!-- displays the name of the user logged in -->
-			<span class="usernameContainer">
-				<p class = "usernameText">
-					<?php 
-						echo $_SESSION['username'];
-					?>
-				</p>
-			</span>
+			<?php
+				if ($_SESSION['loggedin'] == true) {
+					echo '<span class = "navlinks">';
+					echo 	'<form id="logout-form" method = "post">';
+					echo 		'<button type="submit" id = "logout" name = "logout">log out</button>';
+					echo 	'</form>';
+					echo 	'<a href = "diary.php"><p class = "usernameText">'.$_SESSION['username'].'</p></a>';
+					echo '</span>';
+				} else {
+					header('Location: login.php');
+				}
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					if (isset($_POST['logout'])) {
+						$_SESSION['loggedin'] = false;
+						header("Refresh:0");
+					}
+				}
+			?>
 			<p id = 'logo'><a href="index.php">myNotes</a></p>	
 		</div>
 		<div class = "main">
@@ -53,14 +63,16 @@
 							   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
 							   			$daysLeft = floor($secondsLeft/86400);
 							   			$shownDate = date("d-m-Y", strtotime($row["eventDate"]));
-							   			//populates the table
-							   			echo "<tr>";
-							            echo 	'<td>'.$row["eventTitle"].'</td>';
-							            echo 	'<td>'.$row["notes"].'</td>';
-							            echo 	'<td>'.$row["eventLocation"].'</td>';
-							            echo 	'<td>'.$shownDate.'</td>';
-							            echo 	'<td>'.$daysLeft.'</td>';
-							        	echo '</tr>';
+							   			if ($daysLeft >= 0){
+								   			//populates the table
+								   			echo "<tr>";
+								            echo 	'<td>'.$row["eventTitle"].'</td>';
+								            echo 	'<td>'.$row["notes"].'</td>';
+								            echo 	'<td>'.$row["eventLocation"].'</td>';
+								            echo 	'<td>'.$shownDate.'</td>';
+								            echo 	'<td>'.$daysLeft.'</td>';
+								        	echo '</tr>';
+							        	}
 							   		}
 							    }
 						}
