@@ -44,11 +44,13 @@
 				    $selectionResult = mysqli_query($conn, $selectEventsQuery);
 				    if (mysqli_num_rows($selectionResult) > 0) {
 						    while($row = mysqli_fetch_assoc($selectionResult)) {
+						    	//only displayes the events with the userid of the current user
 						   		if ($_SESSION['usersID'] == $row["usersID"]){
 						   			//finds the amount of seconds between the current date and the event date
 						   			$secondsLeft = (strtotime($row["eventDate"]) - strtotime(date("Y-m-d")));
 						   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
-						   			$daysLeft = $secondsLeft/86400;
+						   			$daysLeft = floor($secondsLeft/86400);
+						   			//populates the table
 						   			echo "<tr>";
 						            echo 	'<td>'.$row["eventTitle"].'</td>';
 						            echo 	'<td>'.$row["notes"].'</td>';
@@ -65,13 +67,34 @@
 				<label>event: </label>
 				<input type="text" name="eventTitle" id = "eventTitle">
 				<label>details about the event (maximum 140 characters): </label>
-				<textarea id = "eventDetails"></textarea>
+				<textarea id = "eventDetails" name="eventDetails"></textarea>
 				<label>event location: </label>
 				<input type="text" name="eventLocation" id = "eventLocation">
 				<label>date: </label>
 				<input type="date" name="eventDate" id = "eventDate">
-				<button type = "submit" id = "eventSubmit">add</button>
+				<button type = "submit" id = "eventSubmit" name = "eventSubmit">add</button>
 			</form>
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
+					if (isset($_POST['eventSubmit'])) { //if some presses the add button
+						//initialising the variables supplied by the form
+						$newEventTitle = $_POST['eventTitle'];
+						$newEventDetails = $_POST['eventDetails']; 
+						$newEventLocation = $_POST['eventLocation']; 
+						$newEventDate = $_POST['eventDate'];
+						$newUserID = $_SESSION["usersID"];
+						//checks to see that all the fields have data in them
+						if ($newEventTitle == null or $newEventDetails == null or $newEventLocation == null or $newEventDate == null){
+							alertUser("all fields must be filled out");
+						} else {
+							$addEventQuery = "INSERT INTO diary (usersID,eventTitle, notes, eventLocation, eventDate) VALUES ('$newUserID', '$newEventTitle', '$newEventDetails', '$newEventLocation', '$newEventDate')";
+							if (mysqli_query($conn, $addEventQuery)) {
+								header("Refresh:0");
+							}
+						}
+					}
+				}
+			?>
 		</div>
 	</body>
 </html>
