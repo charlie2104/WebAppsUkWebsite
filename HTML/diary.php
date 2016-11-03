@@ -31,38 +31,42 @@
 			<p id = 'logo'><a href="index.php">myNotes</a></p>	
 		</div>
 		<div class = "main">
-			<table id = "diary">
-				<tr>
-					<th>event</th>
-					<th>description</th>
-					<th>location</th>
-					<th>date</th>
-					<th>days until</th>
-				</tr>
-				<?php
-					$selectEventsQuery = "SELECT * FROM diary";
-				    $selectionResult = mysqli_query($conn, $selectEventsQuery);
-				    if (mysqli_num_rows($selectionResult) > 0) {
-						    while($row = mysqli_fetch_assoc($selectionResult)) {
-						    	//only displayes the events with the userid of the current user
-						   		if ($_SESSION['usersID'] == $row["usersID"]){
-						   			//finds the amount of seconds between the current date and the event date
-						   			$secondsLeft = (strtotime($row["eventDate"]) - strtotime(date("Y-m-d")));
-						   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
-						   			$daysLeft = floor($secondsLeft/86400);
-						   			//populates the table
-						   			echo "<tr>";
-						            echo 	'<td>'.$row["eventTitle"].'</td>';
-						            echo 	'<td>'.$row["notes"].'</td>';
-						            echo 	'<td>'.$row["eventLocation"].'</td>';
-						            echo 	'<td>'.$row["eventDate"].'</td>';
-						            echo 	'<td>'.$daysLeft.'</td>';
-						        	echo '</tr>';
-						   		}
-						    }
-					}
-				?>
-			</table>
+			<h2 id = "diaryHeading">Diary</h2>
+			<hr />
+			<div id = "diaryContainer">
+				<table id = "diary">
+					<tr>
+						<th>event</th>
+						<th>description</th>
+						<th>location</th>
+						<th>date</th>
+						<th>days until</th>
+					</tr>
+					<?php
+						$selectEventsQuery = "SELECT * FROM diary";
+					    $selectionResult = mysqli_query($conn, $selectEventsQuery);
+					    if (mysqli_num_rows($selectionResult) > 0) {
+							    while($row = mysqli_fetch_assoc($selectionResult)) {
+							    	//only displayes the events with the userid of the current user
+							   		if ($_SESSION['usersID'] == $row["usersID"]){
+							   			//finds the amount of seconds between the current date and the event date
+							   			$secondsLeft = (strtotime($row["eventDate"]) - strtotime(date("Y-m-d")));
+							   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
+							   			$daysLeft = floor($secondsLeft/86400);
+							   			//populates the table
+							   			echo "<tr>";
+							            echo 	'<td>'.$row["eventTitle"].'</td>';
+							            echo 	'<td>'.$row["notes"].'</td>';
+							            echo 	'<td>'.$row["eventLocation"].'</td>';
+							            echo 	'<td>'.$row["eventDate"].'</td>';
+							            echo 	'<td>'.$daysLeft.'</td>';
+							        	echo '</tr>';
+							   		}
+							    }
+						}
+					?>
+				</table>
+			</div>
 			<form method="post" class = "addEvent">
 				<label>event: </label>
 				<input type="text" name="eventTitle" id = "eventTitle">

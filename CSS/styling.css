@@ -1,4 +1,4 @@
-* {
+*{
 	margin: 0;
 	padding: 0;
 }
@@ -6,7 +6,7 @@ body{
 	background-color: #f0f0f0;
 	font-family: sans-serif, serif;
 }
-.centered {
+.centered{
 	margin: 0 auto;
 }
 .signUp_heading{
@@ -97,10 +97,10 @@ hr{
     font-size: 1.2em;
 }
 
-#signUpButton:hover {
+#signUpButton:hover{
     background-color: #6699ff;
 }
-#logInButton {
+#logInButton{
     width: 100%;
     background-color: #6688ff;
     color: white;
@@ -111,7 +111,7 @@ hr{
     cursor: pointer;
     font-size: 1.2em;
 }
-#logInButton:hover {
+#logInButton:hover{
     background-color: #6699ff;
 }
 .login{
@@ -125,4 +125,22 @@ hr{
 #usernameContainer{
     float: right;
     padding: 17px;
+}
+#diary{
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: 30px;
+}
+#diary, td, th{
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 80%;
+}
+#diaryHeading{
+    text-align: center;
+    font-size: 3em;
+    padding:30px;
 }
