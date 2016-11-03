@@ -20,6 +20,7 @@
 	<body>
 		<div class = 'navbar'>
 			<span id = "usernameContainer">
+			<!--- displays the name of the user logged in -->
 				<p id = "usernameText">
 					<?php 
 						echo $_SESSION['username'];
