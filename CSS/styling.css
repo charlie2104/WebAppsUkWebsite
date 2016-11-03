@@ -18,7 +18,7 @@ body{
 	margin: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #6699ff;
+	background-color: #6699ff; 
 }
 
 #logo{
@@ -27,6 +27,10 @@ body{
 	padding-left: 10px; 
 	color: #fff;
 	font-size: 2em;
+}
+
+#logo a{
+    width: 200px;
 }
 #navlinks{
 	padding-top: 20px;
@@ -111,4 +115,12 @@ hr{
 .login{
 	margin: 0 auto;
 	width: 80%;
+}
+#usernameText{
+    color: #fff;
+    font-size: 1.5em;
+}
+#usernameContainer{
+    float: right;
+    padding: 17px;
 }

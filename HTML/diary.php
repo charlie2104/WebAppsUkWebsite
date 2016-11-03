@@ -19,12 +19,14 @@
 	</head>
 	<body>
 		<div class = 'navbar'>
-			<p id = 'logo'><a href="index.php">myNotes</a></p>
-			
-			<?php 
-				echo '<p> ' . $_SESSION['username'] . ' </p>';
-			?>
-
+			<span id = "usernameContainer">
+				<p id = "usernameText">
+					<?php 
+						echo $_SESSION['username'];
+					?>
+				</p>
+			</span>
+			<p id = 'logo'><a href="index.php">myNotes</a></p>	
 		</div>
 		<div class = "main">
 			<table id = "diary">
