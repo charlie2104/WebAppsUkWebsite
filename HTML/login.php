@@ -42,7 +42,7 @@
 				        $inputUserPassword =  $_POST['password'];
 						
 						//selecting all of the data from the table
-						$getValues = "SELECT usersId, userName, password FROM users";
+						$getValues = "SELECT usersID, userName, password FROM users";
 						$result = mysqli_query($conn, $getValues);
 
    						//checking to see if there are rows in the databse
@@ -58,7 +58,6 @@
 						        	//if the inputted password is the same as the pasword in the curent row log them in
 						        	if ($dbPassword == $inputUserPassword){
 						        		$count += 1;
-						        		alertUser("logged in");
 						        		$_SESSION['loggedin'] = true;
     									$_SESSION['username'] = $inputUserName;
     									$_SESSION['usersID'] = $row["usersID"];
