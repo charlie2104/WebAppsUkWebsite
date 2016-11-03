@@ -1,0 +1,15 @@
+today i have continued to develop my website and learnt more skills that proved usefull
+
+----PHP----
+i started off today by learning how to populate a table with a set fo events that i had pre-placed into the dictionary. I did this by looping through 
+the data and checking to see if the userID of that particular row was equal to the session variable userID that i stored when the user logged in.
+I managed to do this and then continued to work on the form to add new events. I managed to do this and then decided to figure out how to work out how 
+many days were between now nad the event. I did this by using the php date() function to get the current date then subtracting that from the date in
+the database. i then divided it by the amount of seconds in a day and floored it. After this my table was prettymuch done and i worked on creating
+a log out button. To do this i made a button that when pressed set the value of login to false and refreshed the page. I then altered the navbar 
+depending on the state of the loggedIn variable and then learnt about a <?php if(): ?> statements which made making this much easier as i didnt
+have to enclose all of my code in echo's.
+
+----MySQL----
+Today i learnt abit more about MySQL queries. When displaying the table i wanted the events to be ordered by date so i learnt to use the ORDER BY 
+statement when selecting my data.

@@ -12,7 +12,7 @@
 			<?php
 				if ($_SESSION['loggedin'] == true) {
 					echo '<span class = "navlinks">';
-					echo 	'<form id="logout-form" method = "post">';
+					echo 	'<form id="logoutForm" method = "post">';
 					echo 		'<button type="submit" id = "logout" name = "logout">log out</button>';
 					echo 	'</form>';
 					echo 	'<a href = "diary.php"><p class = "usernameText">'.$_SESSION['username'].'</p></a>';

@@ -187,7 +187,7 @@ hr{
     cursor: pointer;
     display: inline-block;
 }
-#logout-form {
+#logoutForm {
     display: block;
     float: right;
 }
