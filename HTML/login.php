@@ -61,6 +61,7 @@
 						        		alertUser("logged in");
 						        		$_SESSION['loggedin'] = true;
     									$_SESSION['username'] = $inputUserName;
+    									$_SESSION['usersID'] = $row["usersID"];
 						        		header('Location: diary.php');
 						        		 
 						        	}
