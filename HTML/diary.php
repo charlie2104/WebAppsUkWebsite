@@ -20,8 +20,8 @@
 	<body>
 		<div class = 'navbar'>
 			<!-- displays the name of the user logged in -->
-			<span id = "usernameContainer">
-				<p id = "usernameText">
+			<span class="usernameContainer">
+				<p class = "usernameText">
 					<?php 
 						echo $_SESSION['username'];
 					?>
@@ -67,17 +67,19 @@
 					?>
 				</table>
 			</div>
-			<form method="post" class = "addEvent">
-				<label>event: </label>
-				<input type="text" name="eventTitle" id = "eventTitle">
-				<label>details about the event (maximum 140 characters): </label>
-				<textarea id = "eventDetails" name="eventDetails"></textarea>
-				<label>event location: </label>
-				<input type="text" name="eventLocation" id = "eventLocation">
-				<label>date: </label>
-				<input type="date" name="eventDate" id = "eventDate">
-				<button type = "submit" id = "eventSubmit" name = "eventSubmit">add</button>
-			</form>
+			<div id = "addEventContainer">
+				<form method="post" class = "addEvent">
+					<label>event: </label>
+					<input type="text" name="eventTitle" id = "eventTitle">
+					<label>details about the event (maximum 140 characters): </label>
+					<textarea id = "eventDetails" name="eventDetails"></textarea>
+					<label>event location: </label>
+					<input type="text" name="eventLocation" id = "eventLocation">
+					<label>date: </label>
+					<input type="date" name="eventDate" id = "eventDate">
+					<button type = "submit" id = "eventSubmit" name = "eventSubmit">add</button>
+				</form>
+			</div>
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
 					if (isset($_POST['eventSubmit'])) { //if some presses the add button

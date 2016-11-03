@@ -10,16 +10,26 @@
 	<body>
 		<div class = "navbar">
 			<?php
-				echo $_SESSION['loggedin'];
 				if ($_SESSION['loggedin'] == true) {
-					echo '<button type="button" id = "logout" method = "post">log out</button>';
+					echo '<span class = "navlinks">';
+					echo 	'<a href = "diary.php"><p class = "usernameText">'.$_SESSION['username'].'</p></a>';
+					echo 	'<form method = "post">';
+					echo 		'<button type="submit" id = "logout" name = "logout">log out</button>';
+					echo 	'</form>';
+					echo '</span>';
 				} else {
-					echo '<span id = "navlinks">';
+					echo '<span class = "navlinks">';
 					echo 	'<ul>';
 					echo		'<li><button type="button" id = "login">log in</button></li>';
 					echo		'<li><button type="button" id = "signup">sign up</button></li>';
 					echo 	'</ul>';
 					echo '</span>';
+				}
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					if (isset($_POST['logout'])) {
+						$_SESSION['loggedin'] = false;
+						header("Refresh:0");
+					}
 				}
 			?>
 			<p id = 'logo'>myNotes</p>

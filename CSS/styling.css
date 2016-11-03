@@ -29,20 +29,22 @@ body{
 }
 #logo a{
     width: 200px;
+    text-decoration: none;
+    color: #fff;
 }
-#navlinks{
+.navlinks{
 	padding-top: 20px;
 	padding-right: 20px;
 	float: right;
 }
-#navlinks ul{
+.navlinks ul{
 	display: inline;
 	list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-#navlinks ul li button{
+.navlinks ul li button{
     background-color: #6699ff;
     padding-right: 20px;
     padding-left: 20px;
@@ -55,12 +57,12 @@ body{
     margin-right: 20px;
     cursor: pointer;
 }
-#navlinks ul li{
+.navlinks ul li{
     display: inline;
 }
-#logo a{
-	text-decoration: none;
-	color: #fff;
+.navlinks a{
+    text-decoration: none;
+    color: #fff;
 }
 .main{
 	margin: 0 auto;
@@ -116,11 +118,11 @@ hr{
 	margin: 0 auto;
 	width: 80%;
 }
-#usernameText{
+.usernameText{
     color: #fff;
     font-size: 1.5em;
 }
-#usernameContainer{
+.usernameContainer{
     float: right;
     padding: 17px;
 }
@@ -144,24 +146,42 @@ hr{
 }
 .addEvent{
     margin: 0 auto;
-    width: 80%;
+    width: 300px;
 }
 .addEvent textarea{
-    resize: none;
     display: block;
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 10px;
+    margin:2px 0 20px 0;
+    width: 100%;
 }
 .addEvent input{
     display: block;
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 10px;
+    margin:2px 0 20px 0;
+    width: 100%;
 }
 .addEvent button{
     display: block;
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 10px;
+    margin:2px 0 20px 0;
+}
+#addEventContainer{
+    width: 100%
+}
+#logout{
+    float: right;
+    background-color: #6699ff;
+    margin-right: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
 }
