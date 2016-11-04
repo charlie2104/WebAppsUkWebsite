@@ -1,0 +1,30 @@
+----notes----
+-php
+	-how to talk to database
+	-session variables
+	-hashing
+	-storing data from a form
+	-detecting a button click
+-js
+	-ternary operators
+	-linking to other web pages
+-html
+	-span tags
+	-importance of order
+-css
+	-different display methods
+-mysql
+	-creating a database
+	-creating a table
+	-querying the table
+-general
+	-file structure
+	-setting up xampp
+	-importance of testing
+	-importance of git
+	-to ask for help
+	-use google
+	-how the company works on cases
+
+
+massive thanks to josh cook for helping me out all week!

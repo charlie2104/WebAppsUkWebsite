@@ -1,0 +1,54 @@
+Overall i have had an extremely good week here at WebApps. I have learnt lots of new things both about programing and general skills that will help
+me in the future.
+
+----PHP----
+Before i started this week i knew absloutely nothing about PHP. With the help of Josh and google i have managed to succesfully learn most of the basics
+of PHP such as loops and declaring variables and i have also learnt how to input/read data from a database. I also learnt that PHP stands for
+PHP Hypertext Preprocessor. I mainly struggled with PHP at the beginning because its syntax felt weird to me and i didnt know that you needed a 
+server set up to use it. Which Josh helped me fix and now i feel confient that i could do this on my own. However now that i have used PHP more i am 
+much more confident with it and am now able to do basic backend web development. I also learnt how to use hashing to store passwords safely and 
+effectively and why not to use encryption, thanks to Craig.
+I also learnt about how to use session variables and how they are important for tracking the state of something between web pages such as wether
+the user is logged in or not. Furthermore i leant about detecting button clicks and seeing when the server was posting data and also running SQL 
+querries. If there is one particular thing i thought i wouldn't be able to do at the start of the week it was wire up a form to actually do something 
+and now i am extremely confident with it. Overall the most i have learnt about is PHP and it's great!
+
+----MySQL----
+Again before i started the week i hadn't done that much MySQL. I had touched on it using Python however this was quite a bit different. I leant about
+all kinds of querrys, from creaing tables to displaing the data. Learning MySQL also taught me a lot about data types and the importance of choosing
+the correct one. Josh taught me about joins and foreign keys and then i looked up on google how i would actually use/implement them. I definitely found
+learnign MySQL much easier than learning PHP. Mainly due to the fact that the syntax is very similar to english and there being very few programming
+concepts such as loops or if/else statements. Now that i know alot more about MySQL i am much more confident to start creating my own databases and
+using them in my future projects.
+
+----HTML----
+Before i came i knew quite alot about HTML allready. However at WebApps i learnt about the importance of ordering your HTML correctly, i.e which tag 
+needs to go before another tag. I also learnt how to use 'span' tags more effectively and learnt how to use PHP with HTML to display different things
+depending on if the user is logged in or not.
+
+----JavaScript----
+I didn't use JS alot in my website mainly because i could use PHP for a lot of what i wanted to do with it. However i did learn how to change the 
+webpage depending on a button press and in my earlier commits i did some form validation with JS however i ended up using PHP for this job in the end.
+One thing Josh taught me about near the start of the week was ternary operatiors and how to use them. I think these are very efficient and i plan on 
+using them in some of my programs in the future.
+
+----CSS----
+A lot of the CSS i did for the website was mainly trial and error. Because i knew CSS when i joined WebApps i jut used my existing knowledge to achieve
+a lot of the things i needed. However i struggled when placing some elements and Josh helped me with placing the log in/sign up buttons on the right of
+the navBar. I also struggled placing two forms next to each other and this is when i leant about 'flex' for the display property. I think my CSS skills
+have improved and now i am alot more confident in building layouts for my sites that at least work in a mobile view.
+
+----General----
+Overall across the whole week i have larnt and picked up quite a few more tips. Josh has taught me to use GitHub much more for storing my projects and
+that it is important as i can share what i do much more easilly and people can see all of my work. I also learnt how to use google for finding answers
+or solutions to problems that i have had. And i also learnt to be less shy when needing to ask questions about something. At the start of the week i 
+learnt how WebApps work as a company and got to see how they test a product and make a solution to a problem that a client is having. Most importantly
+i learnt to ot be affraid of jumping into a new language and just to use google to help when learning new things. Before this week i never would of just
+tried a new language i would have most likely come up with some sort of excuse e.g 'i eed to learn more about ___ before i start that.' And now i am 
+confident that i can try whatever language i want and hoefully learn it quite well on my own.
+
+----Thanks----
+I want to say a massive thank you to Josh Cook for helping me out over the course of the week and pointing me in the right direction when i got stuck.
+I also want to thank WebApps for letting me come for the week and helping me develop my skills. Thanks! 
+
+
