@@ -145,32 +145,22 @@ hr{
     font-size: 3em;
     padding:30px;
 }
-.addEvent{
-    margin: 0 auto;
-    width: 300px;
-}
-.addEvent textarea{
-    display: block;
+.deleteEvent textarea{
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 0;
+    margin:5px 0 20px 0;
     width: 100%;
 }
-.addEvent input{
-    display: block;
+.deleteEvent input{
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 0;
+    margin:5px 0 20px 0;
     width: 100%;
 }
-.addEvent button{
-    display: block;
+.deleteEvent button{
     font-size:1em;
     padding:4px 2px;
-    margin:2px 0 20px 0;
-}
-#addEventContainer{
-    width: 100%
+    margin:5px 0 20px 0;
 }
 #logout{
     float: right;
@@ -195,4 +185,29 @@ hr{
     text-align: center;
     font-size: 1.2em;
     height: 100vh;
+}
+#formContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.deleteEvent{
+    display: inline-block;
+    width: 300px;
+    margin:20px;
+}
+#DeleteDiaryID{
+    font-size:1em;
+    padding:4px 2px;
+    margin:5px 0 20px 0;
+    width: 100%;
+}
+#DeleteSubmit{
+    font-size:1em;
+    padding:4px 2px;
+    margin:5px 0 20px 0;
+}
+#formContainer h3{
+    margin-bottom: 20px;
+    text-decoration: underline;
 }
