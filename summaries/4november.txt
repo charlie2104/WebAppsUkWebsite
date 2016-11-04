@@ -1,0 +1,18 @@
+today i mainly polished my website by adding a few new things and fixing a few bugs.
+
+----PHP----
+i learnt how to hash passwords by using the "hash('sha512',$password)" command. I then stored the 128 bit hashed password in the database and when a
+user logged in i hashed the password they inputed and then compared it against the hashed password from the database. I learnt that using a hash
+is much more secure than encryption as it is extremely hard to reverse. This is why i had to hash the inputted password as it is a LOT faster than
+de-hashing the database password then comparing. Craig also told me that encryption used to be secure but when computers advanced it became less 
+secure so when quantum computers advance hashing will most likely fail just as easilly. Today i also learnt how to use a form to delete something
+from the table. I couldnt get the delete button to work so instead decided to disply the diary id number and ask users to input that into a form,
+which made it much easier.
+
+----MySQL----
+i used MySQL to write a querry that deletes data from the table. So i learnt how to use the "DELETE FROM" querry to delete that instance from the table,
+i also made sure that i checked the userID of the person logged in and the userID in the table matched so that a user couldnt delete everyone elses
+events.
+
+----CSS----
+Using css today i learnt about a new display type called flex which allowed me to display the addEvent and deleteEvent forms side by side.
