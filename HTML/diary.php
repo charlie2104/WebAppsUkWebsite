@@ -49,7 +49,7 @@
 			<div id = "diaryContainer">
 				<table id = "diary">
 					<tr>
-						<th>Delete</th>
+						<th>Diary ID number</th>
 						<th>Event</th>
 						<th>Description</th>
 						<th>Location</th>
@@ -68,15 +68,10 @@
 							   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
 							   			$daysLeft = floor($secondsLeft/86400);
 							   			$shownDate = date("d-m-Y", strtotime($row["eventDate"]));
-							   			$currentDiaryID = $row["diaryID"];
 							   			if ($daysLeft >= 0){
 								   			//populates the table
 								   			echo '<tr>';
-								   			echo 	'<td>';
-								   			echo 		'<form method = "post">';
-											echo 			'<button type="submit" id = "deleteButton" name = "deleteButton">Delete</button>';
-											echo 		'</form>';
-											echo 	'</td>';
+								   			echo 	'<td>'.$row["diaryID"].'</td>';
 								            echo 	'<td>'.$row["eventTitle"].'</td>';
 								            echo 	'<td>'.$row["notes"].'</td>';
 								            echo 	'<td>'.$row["eventLocation"].'</td>';
@@ -120,6 +115,28 @@
 							if (mysqli_query($conn, $addEventQuery)) {
 								header("Refresh:0");
 							}
+						}
+					}
+				}
+			?>
+			<div id = "deleteEventConataine">
+				<form method="post" class = "deleteEvent">
+					<label>Diary ID number:</label>
+					<input type="text" name="DeleteDiaryID" id = "DeleteDiaryID">
+					<button type = "submit" id = "DeleteSubmit" name ="DeleteSubmit">Delete event</button>
+				</form>
+			</div>
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
+					if (isset($_POST['DeleteSubmit'])) {  //starts if the delete event button was pressed
+						$deleteEventID = $_POST['DeleteDiaryID'];
+						if ($deleteEventID == null) {
+							alertUser("you must input a diary ID");
+						} else {
+							$currentUserID = $_SESSION['usersID'];
+							$sqlDeleteQuery = "DELETE FROM diary WHERE diaryID = '$deleteEventID' AND usersID = '$currentUserID'";
+							mysqli_query($conn, $sqlDeleteQuery);
+							header("Refresh:0");
 						}
 					}
 				}
