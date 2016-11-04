@@ -35,6 +35,9 @@
 			<p id = 'logo'>myNotes</p>
 		</div>
 		<div class= 'main'>
+		<h1 class = "signUp_heading">Welcome to myNotes!</h1>
+		<hr />
+		<p class = "indexMainText">this is a website where you can store events in a table and keep track of how close they are. </p>
 		</div>
 		<?php if ($_SESSION['loggedin'] == true): ?>
 				<script type="text/javascript" src = "../JavaScript/logOut.js"></script>
