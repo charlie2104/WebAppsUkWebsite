@@ -57,6 +57,7 @@
 						$chosenEmail = $_POST['email'];
 						$chosenPassword = $_POST['password'];
 						$confirmPassword = $_POST['cpassword'];
+						$hashedPassword = hash('sha512',$chosenPassword);
 						//checks to see if the fields have data in them
 						if ($chosenUserName == "" or $chosenEmail == "" or $chosenPassword == "" or $confirmPassword == ""){
 							alertUser("all fields must be filled in");
@@ -74,7 +75,7 @@
 									    }
 									    //this is outside the while loop to stope it creating multile data entries
 									    if ($userNameCount == 0){   //if userNameCount is 0 the username was not taken
-										    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$chosenPassword', '$chosenEmail')"; //MySQL code for inserting the values
+										    $addUser = "INSERT INTO users (userName, password, email) VALUES ('$chosenUserName', '$hashedPassword', '$chosenEmail')"; //MySQL code for inserting the values
 											if (mysqli_query($conn, $addUser)) { //if data is successfully added
 												alertUser("signed up!");
 											} 

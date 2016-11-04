@@ -55,8 +55,10 @@
 						        	$count += 1;
 						        	//sets the password from the row to a variable
 						        	$dbPassword = $row["password"];
+						        	$hashedPassword = hash('sha512',$inputUserPassword);
+						        	echo $hashedPassword;
 						        	//if the inputted password is the same as the pasword in the curent row log them in
-						        	if ($dbPassword == $inputUserPassword){
+						        	if ($hashedPassword == $dbPassword){
 						        		$count += 1;
 						        		$_SESSION['loggedin'] = true;
     									$_SESSION['username'] = $inputUserName;
