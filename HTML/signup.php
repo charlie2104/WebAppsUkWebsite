@@ -11,15 +11,14 @@
 			$password = "";
 			$conn = new mysqli($servername, $username, $password);
 			$db = mysqli_select_db($conn,"mynotes");
-			
+			//a function that allows an alert to pop up for the user
 			function alertUser($message){
 				echo '<script language="javascript">alert("' . $message . '")</script>';
 			}
-
+			//setting up a function to validate the email
 			function validateEmail($email){
 				// Remove all illegal characters from email
 				$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
 				// Validate e-mail
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
 				    return true;
@@ -34,7 +33,6 @@
 			<p id = 'logo'><a href="index.php">myNotes</a></p>
 		</div>
 		<div class= 'main'>
-
 			<h2 class = "signUp_heading">make an account</h2>
 			<hr />
 			<form class = 'signup' method="post" accept="\">
@@ -57,6 +55,7 @@
 						$chosenEmail = $_POST['email'];
 						$chosenPassword = $_POST['password'];
 						$confirmPassword = $_POST['cpassword'];
+						//hashes the chosen password for storing
 						$hashedPassword = hash('sha512',$chosenPassword);
 						//checks to see if the fields have data in them
 						if ($chosenUserName == "" or $chosenEmail == "" or $chosenPassword == "" or $confirmPassword == ""){
@@ -92,7 +91,6 @@
 						}
 					}
 				}
-
 			?>
 		</div>
 	</body>

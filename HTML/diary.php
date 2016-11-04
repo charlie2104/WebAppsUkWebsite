@@ -20,7 +20,9 @@
 	<body>
 		<div class = 'navbar'>
 			<?php
+				//checks to see if the user is logged in or not
 				if ($_SESSION['loggedin'] == true) {
+					//if they are it shows there username in the top left alon with a log out button
 					echo '<span class = "navlinks">';
 					echo 	'<form id="logoutForm" method = "post">';
 					echo 		'<button type="submit" id = "logout" name = "logout">log out</button>';
@@ -28,12 +30,14 @@
 					echo 	'<a href = "diary.php"><p class = "usernameText">'.$_SESSION['username'].'</p></a>';
 					echo '</span>';
 				} else {
+					//if they aren't logged in it redirects them to the log in page
 					header('Location: login.php');
 				}
+				//this checks to see if the logout button has been pressed
 				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					if (isset($_POST['logout'])) {
-						$_SESSION['loggedin'] = false;
-						header("Refresh:0");
+						$_SESSION['loggedin'] = false;   //if it has then set logged in to false
+						header("Refresh:0"); //then refresh the page wich will thus redirect them to the login page
 					}
 				}
 			?>
@@ -45,11 +49,12 @@
 			<div id = "diaryContainer">
 				<table id = "diary">
 					<tr>
-						<th>event</th>
-						<th>description</th>
-						<th>location</th>
-						<th>date</th>
-						<th>days until</th>
+						<th>Delete</th>
+						<th>Event</th>
+						<th>Description</th>
+						<th>Location</th>
+						<th>Date</th>
+						<th>Days until</th>
 					</tr>
 					<?php
 						$selectEventsQuery = "SELECT * FROM diary ORDER BY eventDate";
@@ -63,9 +68,15 @@
 							   			//divides the seconds left by the amount fo seconds in a day to get the amount of days left
 							   			$daysLeft = floor($secondsLeft/86400);
 							   			$shownDate = date("d-m-Y", strtotime($row["eventDate"]));
+							   			$currentDiaryID = $row["diaryID"];
 							   			if ($daysLeft >= 0){
 								   			//populates the table
-								   			echo "<tr>";
+								   			echo '<tr>';
+								   			echo 	'<td>';
+								   			echo 		'<form method = "post">';
+											echo 			'<button type="submit" id = "deleteButton" name = "deleteButton">Delete</button>';
+											echo 		'</form>';
+											echo 	'</td>';
 								            echo 	'<td>'.$row["eventTitle"].'</td>';
 								            echo 	'<td>'.$row["notes"].'</td>';
 								            echo 	'<td>'.$row["eventLocation"].'</td>';
@@ -74,7 +85,8 @@
 								        	echo '</tr>';
 							        	}
 							   		}
-							    }
+							}
+							    
 						}
 					?>
 				</table>
