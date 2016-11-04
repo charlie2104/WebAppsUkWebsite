@@ -85,8 +85,9 @@
 					?>
 				</table>
 			</div>
-			<div id = "addEventContainer">
-				<form method="post" class = "addEvent">
+			<div id = "formContainer">
+				<form method="post" class = "deleteEvent">
+					<h3>Add an event</h3>
 					<label>event: </label>
 					<input type="text" name="eventTitle" id = "eventTitle">
 					<label>details about the event (maximum 140 characters): </label>
@@ -95,52 +96,51 @@
 					<input type="text" name="eventLocation" id = "eventLocation">
 					<label>date: </label>
 					<input type="date" name="eventDate" id = "eventDate">
-					<button type = "submit" id = "eventSubmit" name = "eventSubmit">add</button>
+					<button type = "submit" id = "eventSubmit" name = "eventSubmit">Add event</button>
 				</form>
-			</div>
-			<?php
-				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
-					if (isset($_POST['eventSubmit'])) { //if some presses the add button
-						//initialising the variables supplied by the form
-						$newEventTitle = $_POST['eventTitle'];
-						$newEventDetails = $_POST['eventDetails']; 
-						$newEventLocation = $_POST['eventLocation']; 
-						$newEventDate = $_POST['eventDate'];
-						$newUserID = $_SESSION["usersID"];
-						//checks to see that all the fields have data in them
-						if ($newEventTitle == null or $newEventDetails == null or $newEventLocation == null or $newEventDate == null){
-							alertUser("all fields must be filled out");
-						} else {
-							$addEventQuery = "INSERT INTO diary (usersID,eventTitle, notes, eventLocation, eventDate) VALUES ('$newUserID', '$newEventTitle', '$newEventDetails', '$newEventLocation', '$newEventDate')";
-							if (mysqli_query($conn, $addEventQuery)) {
-								header("Refresh:0");
+				<?php
+					if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
+						if (isset($_POST['eventSubmit'])) { //if some presses the add button
+							//initialising the variables supplied by the form
+							$newEventTitle = $_POST['eventTitle'];
+							$newEventDetails = $_POST['eventDetails']; 
+							$newEventLocation = $_POST['eventLocation']; 
+							$newEventDate = $_POST['eventDate'];
+							$newUserID = $_SESSION["usersID"];
+							//checks to see that all the fields have data in them
+							if ($newEventTitle == null or $newEventDetails == null or $newEventLocation == null or $newEventDate == null){
+								alertUser("all fields must be filled out");
+							} else {
+								$addEventQuery = "INSERT INTO diary (usersID,eventTitle, notes, eventLocation, eventDate) VALUES ('$newUserID', '$newEventTitle', '$newEventDetails', '$newEventLocation', '$newEventDate')";
+								if (mysqli_query($conn, $addEventQuery)) {
+									header("Refresh:0");
+								}
 							}
 						}
 					}
-				}
-			?>
-			<div id = "deleteEventConataine">
+				?>
 				<form method="post" class = "deleteEvent">
+					<h3>Delete an event</h3>
 					<label>Diary ID number:</label>
 					<input type="text" name="DeleteDiaryID" id = "DeleteDiaryID">
 					<button type = "submit" id = "DeleteSubmit" name ="DeleteSubmit">Delete event</button>
 				</form>
-			</div>
-			<?php
-				if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
-					if (isset($_POST['DeleteSubmit'])) {  //starts if the delete event button was pressed
-						$deleteEventID = $_POST['DeleteDiaryID'];
-						if ($deleteEventID == null) {
-							alertUser("you must input a diary ID");
-						} else {
-							$currentUserID = $_SESSION['usersID'];
-							$sqlDeleteQuery = "DELETE FROM diary WHERE diaryID = '$deleteEventID' AND usersID = '$currentUserID'";
-							mysqli_query($conn, $sqlDeleteQuery);
-							header("Refresh:0");
+				<?php
+					if ($_SERVER['REQUEST_METHOD'] === 'POST') { //starts if the html issues a pull request
+						if (isset($_POST['DeleteSubmit'])) {  //starts if the delete event button was pressed
+							$deleteEventID = $_POST['DeleteDiaryID'];
+							if ($deleteEventID == null) {  //if they pressed a button but dindnt inut an id
+								alertUser("you must input a diary ID");
+							} else {
+								$currentUserID = $_SESSION['usersID'];
+								$sqlDeleteQuery = "DELETE FROM diary WHERE diaryID = '$deleteEventID' AND usersID = '$currentUserID'";
+								mysqli_query($conn, $sqlDeleteQuery);
+								header("Refresh:0");
+							}
 						}
 					}
-				}
-			?>
+				?>
+			</div>
 		</div>
 	</body>
 </html>
